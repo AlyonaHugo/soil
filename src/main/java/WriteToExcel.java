@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class WriteToExcel {
 
-    protected static void write(Map<Integer, Object[]> data) {
+    protected static void write(Map<Integer, Object[]> data, String fileName) {
         //Blank workbook
         XSSFWorkbook workbook = new XSSFWorkbook();
 
@@ -39,10 +39,10 @@ public class WriteToExcel {
         }
         try {
             //Write the workbook in file system
-            FileOutputStream out = new FileOutputStream(new File("result0.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File(fileName + ".xlsx"));
             workbook.write(out);
             out.close();
-            System.out.println("result.xlsx written successfully on disk.");
+            System.out.println(fileName + ".xlsx written successfully on disk.");
         } catch (Exception e) {
             e.printStackTrace();
         }
